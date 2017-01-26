@@ -7,7 +7,7 @@ namespace Exercise
         public string Address { get; set; }
         public DateTime RegisteredAt { get; set; }
 
-        public Customer(string name, string addr)
+        public Customer(string name, string addr, IRegisterAPI registerApi): base (registerApi)
         {
             NameOrTitle = name;
             Address = addr;
@@ -19,5 +19,6 @@ namespace Exercise
         {
             ObjectId = id;
         }
+        
     }
 }

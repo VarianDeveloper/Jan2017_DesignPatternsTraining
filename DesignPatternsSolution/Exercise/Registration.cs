@@ -56,4 +56,32 @@ namespace Exercise
             return Info + " " + "Available: " + AvailableAmount;
         }
     }
+
+    public interface IRegisterAPI
+    {
+        RegisteredObject GetRegisteredObject(LibObject libObject);
+    }
+
+    public class LibObjectRegisterAPI : IRegisterAPI
+    {
+
+        public LibObjectRegisterAPI()
+        {
+        }
+    
+
+        public RegisteredObject GetRegisteredObject(LibObject libObject)
+        {
+            RegisteredObject regObJ = new RegisteredObject
+            {
+                Info = libObject.NameOrTitle,
+                AvailableAmount = libObject.AvailableAmount,
+                Id = libObject.ObjectId
+            };
+
+            return regObJ;
+        }
+    }
+
+    
 }
