@@ -1,7 +1,7 @@
 ﻿namespace Exercise
 {
-    public class BookBorrowable 
+    public interface IBorrowable
     {
-       
+
     }
 }
