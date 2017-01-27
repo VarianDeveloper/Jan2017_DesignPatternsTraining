@@ -10,7 +10,7 @@ namespace Execise.Tests
         [TestMethod]
         public void LibraryShouldBeSingleton()
         {
-            Assert.AreSame(Library.Instance,Library.Instance);
+            Assert.AreSame(Library.Instance, Library.Instance);
         }
 
         //test that an book was registered successfully by checking the returned Id value is not -1
@@ -38,7 +38,6 @@ namespace Execise.Tests
             var borrowableBook = new BookBorrowable(book);
             borrowableBook.BorrowOne();
             Assert.AreEqual(availableBooks - 1, book.AvailableAmount);
-
-        }       
+        }
     }
 }

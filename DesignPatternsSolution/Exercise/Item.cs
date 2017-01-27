@@ -17,6 +17,7 @@
             NameOrTitle = title;
             Author = author;
         }
+
         public string Author { get; set; }
     }
 }

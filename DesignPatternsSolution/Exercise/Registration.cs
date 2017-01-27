@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+
 namespace Exercise
 {
     public interface IRegistarable
@@ -11,7 +11,7 @@ namespace Exercise
     public static class RegistrationRepository
     {
         //registered objects list
-        private static List<RegisteredObject> _registeredList = new List<RegisteredObject>();
+        private static readonly List<RegisteredObject> _registeredList = new List<RegisteredObject>();
 
         private static int _nextId = 1;
 

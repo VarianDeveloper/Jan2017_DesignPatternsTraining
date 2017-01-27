@@ -1,6 +1,6 @@
 ﻿namespace Exercise
 {
-    public class BookBorrowable 
+    public class BookBorrowable
     {
         private readonly Book _book;
 

@@ -1,6 +1,6 @@
 ﻿namespace Exercise
 {
-    public abstract class LibObject: IRegistarable
+    public abstract class LibObject : IRegistarable
     {
         public int ObjectId { get; set; }
         public int AvailableAmount { get; set; }

@@ -4,9 +4,6 @@ namespace Exercise
 {
     public class Customer : LibObject
     {
-        public string Address { get; set; }
-        public DateTime RegisteredAt { get; set; }
-
         public Customer(string name, string addr)
         {
             NameOrTitle = name;
@@ -14,6 +11,9 @@ namespace Exercise
             RegisteredAt = DateTime.Now;
             ObjType = ObjectType.Person;
         }
+
+        public string Address { get; set; }
+        public DateTime RegisteredAt { get; set; }
 
         public void SetId(int id)
         {
