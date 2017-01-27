@@ -43,6 +43,8 @@ namespace Exercise
 
             return size;
         }
+
+        
     }
 
     public class RegisteredObject
@@ -56,4 +58,7 @@ namespace Exercise
             return Info + " " + "Available: " + AvailableAmount;
         }
     }
+
+   
+
 }
