@@ -1,18 +1,26 @@
 ﻿namespace Exercise
 {
-    public class Library
-    {
-        //implement Singleton to make sure only one library will exist
+	public class Library
+	{
+		//implement Singleton to make sure only one library will exist
+		private static Library library = new Library();
 
-        
+		public static Library Instance
+		{
+			get
+			{
+				return library;
+			}
+		}
 
-        //Implement Register method by utilizing RegistrationRepository (complete missing parts)
-        public int Register()
-        {
-            // return RegistrationRepository.Register();
+		private Library()
+		{
+		}
 
-            //dummy, just to compile
-            return 0;
-        }
-    }
+		//Implement Register method by utilizing RegistrationRepository (complete missing parts)
+		public int Register(IRegistarable item)
+		{
+			return RegistrationRepository.Register(item);
+		}
+	}
 }
