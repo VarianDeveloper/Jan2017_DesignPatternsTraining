@@ -10,8 +10,7 @@ namespace Execise.Tests
         [TestMethod]
         public void LibraryShouldBeSingleton()
         {
-            //check that when you create a Library instance second time, 
-            //you get exactly the same instance as for a very first time
+            Assert.AreSame(Library.Instance,Library.Instance);
         }
 
         //test that an book was registered successfully by checking the returned Id value is not -1
