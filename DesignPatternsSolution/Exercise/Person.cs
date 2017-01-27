@@ -19,5 +19,15 @@ namespace Exercise
         {
             ObjectId = id;
         }
+
+        public override RegisteredObject GetRegistrationInfo()
+        {
+            return new RegisteredObject()
+            {
+                AvailableAmount = 1,
+                Id = -1,
+                Info = NameOrTitle
+            };
+        }
     }
 }
