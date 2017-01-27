@@ -50,6 +50,7 @@ namespace Exercise
         public string Info { get; set; }
         public int Id { get; set; }
         public int AvailableAmount { get; set; }
+        public LibObject obj { get; set; }
 
         public override string ToString()
         {
