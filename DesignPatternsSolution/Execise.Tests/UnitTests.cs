@@ -33,9 +33,12 @@ namespace Execise.Tests
         [TestMethod]
         public void CanBorrowBook()
         {
-            //create a borrowable book with available amount more than one. 
-            //Run BorrowOne method of the BookBorrowable instance. Check that total amount was reduced by one.
-            //var totalAmount = new BookBorrowable().BorrowOne();
+            var availableBooks = 20;
+            var book = new Book("Keith Tremorin", "Design Patterns", 1992, availableBooks);
+            var borrowableBook = new BookBorrowable(book);
+            borrowableBook.BorrowOne();
+            Assert.AreEqual(availableBooks - 1, book.AvailableAmount);
+
         }       
     }
 }
