@@ -2,7 +2,7 @@
 {
     public abstract class Item : LibObject
     {
-        public Item(int amount, int year)
+        public Item(int amount, int year, IRegistrationInfoAPI registerableInfoBridge) : base(registerableInfoBridge)
         {
             AvailableAmount = amount;
             ObjType = ObjectType.Item;
@@ -12,7 +12,7 @@
 
     public class Book : Item
     {
-        public Book(string author, string title, int year, int amount) : base(amount, year)
+        public Book(string author, string title, int year, int amount, IRegistrationInfoAPI registerableInfoBridge) : base(amount, year, registerableInfoBridge)
         {
             NameOrTitle = title;
             Author = author;
