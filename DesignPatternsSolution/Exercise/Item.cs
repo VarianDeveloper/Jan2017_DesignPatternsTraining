@@ -10,13 +10,23 @@
         }
     }
 
-    public class Book : Item
+    public class Book : Item, IRegistarable
     {
-        public Book(string author, string title, int year, int amount) : base(amount, year)
+        public Book(string author, string title, int year, int amount)
+            : base(amount, year)
         {
             NameOrTitle = title;
             Author = author;
         }
         public string Author { get; set; }
+
+        public RegisteredObject GetRegistrationInfo()
+        {
+            RegisteredObject registeredObject = new RegisteredObject();
+            registeredObject.Info = this.NameOrTitle;
+            registeredObject.AvailableAmount = this.AvailableAmount;
+
+            return registeredObject;
+        }
     }
 }
