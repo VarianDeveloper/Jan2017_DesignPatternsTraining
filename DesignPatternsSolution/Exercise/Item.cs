@@ -1,4 +1,6 @@
-﻿namespace Exercise
+﻿using System;
+
+namespace Exercise
 {
     public abstract class Item : LibObject
     {

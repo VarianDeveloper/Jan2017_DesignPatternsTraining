@@ -2,9 +2,10 @@
 {
     public class Library
     {
-        //implement Singleton to make sure only one library will exist
+        private static Library Instance { get; set; }
 
-        
+        private Library() { Instance = new Library(); }
+        public static Library GetInstance() { return Library.Instance; }
 
         //Implement Register method by utilizing RegistrationRepository (complete missing parts)
         public int Register()
