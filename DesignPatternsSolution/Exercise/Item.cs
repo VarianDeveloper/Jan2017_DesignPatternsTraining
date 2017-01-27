@@ -2,7 +2,7 @@
 {
     public abstract class Item : LibObject
     {
-        public Item(int amount, int year)
+        protected Item(int amount, int year)
         {
             AvailableAmount = amount;
             ObjType = ObjectType.Item;
@@ -10,7 +10,7 @@
         }
     }
 
-    public class Book : Item
+    public class Book : Item, IRegistrable
     {
         public Book(string author, string title, int year, int amount) : base(amount, year)
         {
@@ -18,5 +18,14 @@
             Author = author;
         }
         public string Author { get; set; }
+
+        public RegisteredObject GetRegistrationInfo()
+        {
+            RegisteredObject resgisteredObject = new RegisteredObject();
+            resgisteredObject.Info = this.NameOrTitle;
+            resgisteredObject.AvailableAmount = this.AvailableAmount;
+
+            return resgisteredObject;
+        }
     }
 }

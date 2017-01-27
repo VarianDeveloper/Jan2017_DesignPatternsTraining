@@ -3,42 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Exercise
 {
-    public interface IRegistarable
+    public interface IRegistrable
     {
         RegisteredObject GetRegistrationInfo();
     }
 
     public static class RegistrationRepository
     {
-        //registered objects list
-        private static List<RegisteredObject> _registeredList = new List<RegisteredObject>();
+        private static readonly List<RegisteredObject> RegisteredList = new List<RegisteredObject>();
 
         private static int _nextId = 1;
 
-        //With BRIDGE pattern, implement Register method so it will accept both a Person and an Item
-        public static int Register(IRegistarable registarable)
+        public static int Register(IRegistrable registrable)
         {
-            //get info from an lib object
-            var info = registarable.GetRegistrationInfo();
+            var info = registrable.GetRegistrationInfo();
             if (info == null) return -1;
 
-            //get new id for for the registered object
             info.Id = _nextId;
 
-            //add to registration repository
-            _registeredList.Add(info);
+            RegisteredList.Add(info); 
 
-            //store next available id
-            _nextId = _registeredList.Count + 1;
+            _nextId = RegisteredList.Count + 1;
 
-            //return success
             return info.Id;
         }
 
         public static int DeleteAllRegisteredItems()
         {
-            var size = _registeredList.Count();
-            _registeredList.RemoveRange(0, size);
+            var size = RegisteredList.Count();
+            RegisteredList.RemoveRange(0, size);
             _nextId = 1;
 
             return size;
