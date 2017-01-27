@@ -17,12 +17,16 @@ namespace Execise.Tests
         [TestMethod]
         public void BookShouldRegister()
         {
+            var result = RegistrationRepository.Register(new Book("Keith Tremorin", "Design Patterns", 1992, 50));
+            Assert.AreNotEqual(-1, result);
         }
 
         //test that an customer was registered successfully by checking the returned Id value is not -1
         [TestMethod]
         public void CustomerShouldRegister()
         {
+            var result = RegistrationRepository.Register(new Customer("Some Guy", "123 Fake Street"));
+            Assert.AreNotEqual(-1, result);
         }
 
         //test that a book can be borrowed
