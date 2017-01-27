@@ -6,7 +6,7 @@
     <ProjectGuid>{464FBD03-CA8B-4926-8F69-66726819DA02}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Execise.Tests</RootNamespace>
+    <RootNamespace>Exercise.Tests</RootNamespace>
     <AssemblyName>Execise.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
