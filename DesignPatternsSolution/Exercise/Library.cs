@@ -7,12 +7,9 @@
         
 
         //Implement Register method by utilizing RegistrationRepository (complete missing parts)
-        public int Register()
+        public int Register(IRegistarable registarable)
         {
-            // return RegistrationRepository.Register();
-
-            //dummy, just to compile
-            return 0;
+             return RegistrationRepository.Register(registarable);
         }
 
         public static Library Instance { get { return _library ?? (_library = new Library()); } }

@@ -17,7 +17,7 @@ namespace Execise.Tests
         [TestMethod]
         public void BookShouldRegister()
         {
-            var result = RegistrationRepository.Register(new Book("Keith Tremorin", "Design Patterns", 1992, 50));
+            var result = Library.Instance.Register(new Book("Keith Tremorin", "Design Patterns", 1992, 50));
             Assert.AreNotEqual(-1, result);
         }
 
@@ -25,7 +25,7 @@ namespace Execise.Tests
         [TestMethod]
         public void CustomerShouldRegister()
         {
-            var result = RegistrationRepository.Register(new Customer("Some Guy", "123 Fake Street"));
+            var result = Library.Instance.Register(new Customer("Some Guy", "123 Fake Street"));
             Assert.AreNotEqual(-1, result);
         }
 
@@ -35,7 +35,7 @@ namespace Execise.Tests
         {
             //create a borrowable book with available amount more than one. 
             //Run BorrowOne method of the BookBorrowable instance. Check that total amount was reduced by one.
-            
+            //var totalAmount = new BookBorrowable().BorrowOne();
         }       
     }
 }
