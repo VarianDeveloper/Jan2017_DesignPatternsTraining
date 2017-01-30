@@ -51,6 +51,13 @@ namespace Exercise
         public int Id { get; set; }
         public int AvailableAmount { get; set; }
 
+        public RegisteredObject(LibObject libObj)
+        {
+            Id = libObj.ObjectId;
+            Info = libObj.NameOrTitle;
+            AvailableAmount = libObj.AvailableAmount;
+        }
+
         public override string ToString()
         {
             return Info + " " + "Available: " + AvailableAmount;
