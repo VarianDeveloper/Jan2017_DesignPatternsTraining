@@ -9,10 +9,15 @@ namespace Exercise_Answers
 
     public interface ISomeInterface
     {
-        
+
     }
 
-    public static class StaticVsSingleton
+    public static class StaticVsSingleton : ISomeInterface
     {
+    }
+
+    public class MySingleton : ISomeInterface
+    {
+
     }
 }
