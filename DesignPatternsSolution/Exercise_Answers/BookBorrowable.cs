@@ -4,8 +4,17 @@
     {
         private readonly Book _book;
 
-        public new string Author { get { return _book.Author; } set { _book.Author = value; } }
-        public new int AvailableAmount { get { return _book.AvailableAmount; } set { _book.AvailableAmount = value; } }
+        public new string Author
+        {
+            get { return _book.Author; }
+            set { _book.Author = value; }
+        }
+
+        public new int AvailableAmount
+        {
+            get { return _book.AvailableAmount; }
+            set { _book.AvailableAmount = value; }
+        }
 
         public bool BorrowOne()
         {

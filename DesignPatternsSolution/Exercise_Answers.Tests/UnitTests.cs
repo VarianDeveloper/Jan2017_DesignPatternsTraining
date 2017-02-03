@@ -13,7 +13,6 @@ namespace Exercise_Answers.Tests
             //check that when you create a Library instance second time, 
             //you get exactly the same instance as for a very first time
             Assert.IsTrue(ReferenceEquals(Library.GetInstance(), Library.GetInstance()));
-
         }
 
         //test that an book was registered successfully by checking the returned Id value is not -1
