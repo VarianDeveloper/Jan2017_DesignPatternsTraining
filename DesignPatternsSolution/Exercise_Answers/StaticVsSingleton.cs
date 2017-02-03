@@ -12,9 +12,9 @@ namespace Exercise_Answers
 
     }
 
-    public static class StaticVsSingleton : ISomeInterface
-    {
-    }
+    //public static class StaticVsSingleton : ISomeInterface
+    //{
+    //}
 
     public class MySingleton : ISomeInterface
     {
