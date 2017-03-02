@@ -10,7 +10,7 @@
         }
     }
 
-    public class Book : Item
+    public class Book : Item, IRegistarable
     {
         public Book(string author, string title, int year, int amount) : base(amount, year)
         {
@@ -18,5 +18,9 @@
             Author = author;
         }
         public string Author { get; set; }
+        public RegisteredObject GetRegistrationInfo()
+        {
+            return new RegisteredObject() { AvailableAmount = AvailableAmount, Info = NameOrTitle };
+        }
     }
 }
