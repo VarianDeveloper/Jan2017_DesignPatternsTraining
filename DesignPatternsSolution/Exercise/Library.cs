@@ -1,18 +1,32 @@
 ﻿namespace Exercise
 {
-    public class Library
+    public sealed class Library
     {
         //implement Singleton to make sure only one library will exist
+        private static Library instance;
+        private Library() { }
 
-        
 
-        //Implement Register method by utilizing RegistrationRepository (complete missing parts)
-        public int Register()
+        public static Library Instance
         {
-            // return RegistrationRepository.Register();
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Library();
+                }
+                return instance;
+            }
+        }
+
+        //public static Library getInstance() ()
+        //Implement Register method by utilizing RegistrationRepository (complete missing parts)
+        public int Register(IRegistarable newRegObject)
+        {
+            return RegistrationRepository.Register(newRegObject);
 
             //dummy, just to compile
-            return 0;
+            //return 0;
         }
     }
 }
