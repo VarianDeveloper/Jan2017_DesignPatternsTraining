@@ -2,7 +2,7 @@
 
 namespace Exercise
 {
-    public class Customer : LibObject
+    public class Customer : LibObject, IRegistarable
     {
         public string Address { get; set; }
         public DateTime RegisteredAt { get; set; }
@@ -18,6 +18,13 @@ namespace Exercise
         public void SetId(int id)
         {
             ObjectId = id;
+        }
+
+        public RegisteredObject GetRegistrationInfo()
+        {
+            RegisteredObject x = new RegisteredObject();
+            x.obj = this;
+            return x;
         }
     }
 }
