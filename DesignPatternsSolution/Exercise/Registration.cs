@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Exercise
 {
-    public interface IRegistarable
+    public interface IRegistrable
     {
         RegisteredObject GetRegistrationInfo();
     }
@@ -16,7 +16,7 @@ namespace Exercise
         private static int _nextId = 1;
 
         //With BRIDGE pattern, implement Register method so it will accept both a Person and an Item
-        public static int Register(IRegistarable registarable)
+        public static int Register(IRegistrable registarable)
         {
             //get info from an lib object
             var info = registarable.GetRegistrationInfo();
@@ -37,7 +37,7 @@ namespace Exercise
 
         public static int DeleteAllRegisteredItems()
         {
-            var size = _registeredList.Count();
+            var size = _registeredList.Count;
             _registeredList.RemoveRange(0, size);
             _nextId = 1;
 
@@ -53,7 +53,7 @@ namespace Exercise
 
         public override string ToString()
         {
-            return Info + " " + "Available: " + AvailableAmount;
+            return string.Format("{0} Available: {1}", Info, AvailableAmount);
         }
     }
 }

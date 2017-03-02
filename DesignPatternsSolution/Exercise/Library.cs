@@ -3,16 +3,19 @@
     public class Library
     {
         //implement Singleton to make sure only one library will exist
+        private static Library _library;
 
-        
+        private Library() {}
 
         //Implement Register method by utilizing RegistrationRepository (complete missing parts)
-        public int Register()
+        public int Register(IRegistrable registrableItem)
         {
-            // return RegistrationRepository.Register();
+            return RegistrationRepository.Register(registrableItem);
+        }
 
-            //dummy, just to compile
-            return 0;
+        public static Library GetInstance()
+        {
+            return _library ?? (_library = new Library());
         }
     }
 }
