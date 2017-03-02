@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ExerciseInterfaces;
+
 namespace Exercise
 {
-    public interface IRegistarable
-    {
-        RegisteredObject GetRegistrationInfo();
-    }
-
     public static class RegistrationRepository
     {
-        //registered objects list
-        private static List<RegisteredObject> _registeredList = new List<RegisteredObject>();
+        // Registered objects list
+        private static List<IRegisteredObject> _registeredList = new List<IRegisteredObject>();
 
         private static int _nextId = 1;
 
-        //With BRIDGE pattern, implement Register method so it will accept both a Person and an Item
+        //With BRIDGE pattern, implement Register method so it will accept both a Person and an LibraryItem
         public static int Register(IRegistarable registarable)
         {
             //get info from an lib object
@@ -45,7 +42,7 @@ namespace Exercise
         }
     }
 
-    public class RegisteredObject
+    public class RegisteredObject : IRegisteredObject
     {
         public string Info { get; set; }
         public int Id { get; set; }

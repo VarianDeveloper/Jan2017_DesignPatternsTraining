@@ -55,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExerciseInterfaces\ExerciseInterfaces.csproj">
+      <Project>{b26a05d5-9cec-4339-92dd-9b42dee8c028}</Project>
+      <Name>ExerciseInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Exercise\Exercise.csproj">
       <Project>{ea98a53a-f8cd-4539-9e57-1fef2d64f13a}</Project>
       <Name>Exercise</Name>
