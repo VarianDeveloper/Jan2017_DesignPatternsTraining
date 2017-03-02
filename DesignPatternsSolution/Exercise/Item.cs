@@ -18,5 +18,27 @@
             Author = author;
         }
         public string Author { get; set; }
+
+        public virtual void BorrowOne() { }    
+    }
+
+    public class BookRegistration : IRegistarable
+    {
+        private readonly Book _book;
+
+        public BookRegistration(Book book)
+        {
+            _book = book;
+        }
+
+        public RegisteredObject GetRegistrationInfo()
+        {
+            return new RegisteredObject()
+            {
+                AvailableAmount = _book.AvailableAmount,
+                Id = _book.ObjectId,
+                Info = _book.NameOrTitle
+            };
+        }
     }
 }

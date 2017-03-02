@@ -20,4 +20,25 @@ namespace Exercise
             ObjectId = id;
         }
     }
+
+    public class PersonRegistration : IRegistarable
+    {
+        private readonly Customer _cust;
+
+        public PersonRegistration(Customer cust)
+        {
+            _cust = cust;
+            _cust.SetId(1);
+        }
+
+        public RegisteredObject GetRegistrationInfo()
+        {
+            return new RegisteredObject()
+            {
+                AvailableAmount = _cust.AvailableAmount,
+                Id = _cust.ObjectId,
+                Info = _cust.NameOrTitle
+            };
+        }
+    }
 }
