@@ -19,5 +19,13 @@ namespace Exercise
         {
             ObjectId = id;
         }
+
+        override public RegisteredObject GetRegistrationInfo()
+        {
+            RegisteredObject registerable = new RegisteredObject();
+            registerable.Info = ObjType.ToString();
+
+            return registerable;
+        }
     }
 }

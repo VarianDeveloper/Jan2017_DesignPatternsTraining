@@ -8,6 +8,16 @@
             ObjType = ObjectType.Item;
             YearCreated = year;
         }
+
+        override public RegisteredObject GetRegistrationInfo()
+        {
+            RegisteredObject registerable = new RegisteredObject();
+            registerable.Info = ObjType.ToString();
+            registerable.AvailableAmount = AvailableAmount;
+
+            return registerable;
+        }
+
     }
 
     public class Book : Item
