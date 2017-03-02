@@ -43,6 +43,33 @@ namespace Exercise
 
             return size;
         }
+
+        public static int BorrowBook(int book_id)
+        {
+            foreach(RegisteredObject obj in _registeredList) {
+                if (obj.Id == book_id)
+                {
+                    if (obj.obj is IBorrowable && obj.AvailableAmount > 0)
+                    {
+                        obj.AvailableAmount -= 1;
+                        return 0;
+                    }
+                }
+            }
+            return -1;
+        }
+
+        public static int GetAvailableAmount(int book_id)
+        {
+            foreach (RegisteredObject obj in _registeredList)
+            {
+                if (obj.Id == book_id)
+                {
+                    return obj.AvailableAmount;
+                }
+            }
+            return -1;
+        }
     }
 
     public class RegisteredObject
@@ -50,6 +77,7 @@ namespace Exercise
         public string Info { get; set; }
         public int Id { get; set; }
         public int AvailableAmount { get; set; }
+        public IRegistarable obj { get; set; }
 
         public override string ToString()
         {

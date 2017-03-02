@@ -1,5 +1,6 @@
 ﻿using Exercise;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Execise.Tests
 {
@@ -10,29 +11,46 @@ namespace Execise.Tests
         [TestMethod]
         public void LibraryShouldBeSingleton()
         {
-            //check that when you create a Library instance second time, 
-            //you get exactly the same instance as for a very first time
+            Library myLib = Library.getInstance();
+            Library secondLib = Library.getInstance();
+
+            Assert.AreSame(myLib, secondLib);
         }
 
         //test that an book was registered successfully by checking the returned Id value is not -1
         [TestMethod]
         public void BookShouldRegister()
         {
+            Library myLib = Library.getInstance();
+            Book book = new Book("Author", "Title", 2010, 5);
+            int ret_code = myLib.Register(book);
+            Assert.AreNotEqual(-1, ret_code);
+
         }
 
         //test that an customer was registered successfully by checking the returned Id value is not -1
         [TestMethod]
         public void CustomerShouldRegister()
         {
+            Console.WriteLine("WHAT");
+            Library myLib = Library.getInstance();
+            Customer customer = new Customer("Name", "Address");
+            int ret_code = myLib.Register(customer);
+            Assert.AreNotEqual(-1, ret_code);
         }
 
         //test that a book can be borrowed
         [TestMethod]
         public void CanBorrowBook()
         {
-            //create a borrowable book with available amount more than one. 
-            //Run BorrowOne method of the BookBorrowable instance. Check that total amount was reduced by one.
-            
+            //Didn't do decorator.. this is more reliable.
+            int start_book_count = 30;
+            Book borrowBook = new Book("Author2", "Title2", 1990, start_book_count);
+            Library myLib = Library.getInstance();
+            int book_id = myLib.Register(borrowBook);
+            myLib.borrow(book_id);
+            int book_count = myLib.getAvailableAmount(book_id);
+            Assert.AreEqual(start_book_count - 1, book_count);
         }       
     }
 }
