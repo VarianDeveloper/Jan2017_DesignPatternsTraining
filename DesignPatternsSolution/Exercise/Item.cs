@@ -12,6 +12,7 @@
 
     public class Book : Item
     {
+
         public Book(string author, string title, int year, int amount) : base(amount, year)
         {
             NameOrTitle = title;

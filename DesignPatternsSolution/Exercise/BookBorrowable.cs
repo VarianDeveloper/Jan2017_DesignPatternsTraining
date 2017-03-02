@@ -1,7 +1,12 @@
 ﻿namespace Exercise
 {
-    public class BookBorrowable 
+    public class BookBorrowable
     {
-       
+        BookBorrowable borrowable;
+
+        public void BorrowOne()
+        {
+
+        }
     }
 }
