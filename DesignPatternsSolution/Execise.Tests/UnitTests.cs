@@ -10,29 +10,39 @@ namespace Execise.Tests
         [TestMethod]
         public void LibraryShouldBeSingleton()
         {
-            //check that when you create a Library instance second time, 
-            //you get exactly the same instance as for a very first time
+            var l1 = Library.GetInstance();
+            var l2 = Library.GetInstance();
+
+            Assert.AreSame(l1, l2);
         }
 
         //test that an book was registered successfully by checking the returned Id value is not -1
         [TestMethod]
         public void BookShouldRegister()
         {
+            int value = RegistrationRepository.Register(new Book("Author", "Title", 1997, 5));
+
+            Assert.AreNotEqual<int>(-1, value);
         }
 
         //test that an customer was registered successfully by checking the returned Id value is not -1
         [TestMethod]
         public void CustomerShouldRegister()
         {
+            int value = RegistrationRepository.Register(new Customer("Customer Name", "Address"));
+
+            Assert.AreNotEqual<int>(-1, value);
         }
 
         //test that a book can be borrowed
         [TestMethod]
         public void CanBorrowBook()
         {
-            //create a borrowable book with available amount more than one. 
-            //Run BorrowOne method of the BookBorrowable instance. Check that total amount was reduced by one.
-            
+            var book = new Book("Author", "Title", 1997, 5);
+            var borrowable = new BookBorrowable(book);
+
+            borrowable.BorrowOne();
+            Assert.AreEqual<int>(4, book.AvailableAmount);
         }       
     }
 }
