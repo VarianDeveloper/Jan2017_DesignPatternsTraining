@@ -19,4 +19,13 @@
         }
         public string Author { get; set; }
     }
+
+    public class Video : Item
+    {
+        public Video(string title, int year, int amount)
+            : base(amount, year)
+        {
+            NameOrTitle = title;
+        }
+    }
 }
